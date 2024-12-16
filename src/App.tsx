@@ -9,16 +9,18 @@ interface Ingredient {
   color: string;
 }
 
+
 function App() {
+  // const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
   const handleCocktail = (cocktail: any) => {
     setIngredients(cocktail.ingredients);
-
     const totalParts = cocktail.ingredients.reduce(
       (acc: number, ingredient: Ingredient) => acc + ingredient.part,
       0
-    );
+    );  
 
     const parts_percentage = cocktail.ingredients.map((ingredient: Ingredient) => {
       return {
@@ -83,7 +85,7 @@ function App() {
                   backgroundColor: ingredient.color,
                 }}
               >
-                <span className="text-center text-black text-xl font-medium font-bold">
+                <span className="text-center text-black text-xl font-medium">
                   {ingredient.part} part of {ingredient.name}
                 </span>
               </div>
